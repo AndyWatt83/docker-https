@@ -1,4 +1,5 @@
 `cd docker`
+
 `docker compose up`
 
 Then, visit:
