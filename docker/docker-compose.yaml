@@ -5,12 +5,15 @@ services:
     build:
       context: ./client
     ports:
-      - "7167:7167"
-      - "5011:5011"
-      - "80:80"
-      - "443:443"
+      # - "7167:7167"
+      # - "5011:5011"
+      - "5011:80"
+      - "7167:443"
     environment:
-      ASPNETCORE_ENVIRONMENT: Development
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
     volumes:
       - ../ClientApp:/app
+      - '/c/Users/andy/AppData/Roaming/ASP.NET/Https/:/root/.aspnet/https/'
+      - '/c/Users/andy/AppData/Roaming/Microsoft/UserSecrets:/root/.microsoft/usersecrets'
     command: ["dotnet", "watch", "run"]
