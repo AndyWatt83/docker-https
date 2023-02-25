@@ -14,6 +14,4 @@ services:
       - ASPNETCORE_URLS=https://+:443;http://+:80
     volumes:
       - ../ClientApp:/app
-      - '/c/Users/andy/AppData/Roaming/ASP.NET/Https/:/root/.aspnet/https/'
-      - '/c/Users/andy/AppData/Roaming/Microsoft/UserSecrets:/root/.microsoft/usersecrets'
     command: ["dotnet", "watch", "run"]
