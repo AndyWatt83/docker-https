@@ -1,0 +1,16 @@
+version: '3'
+services:
+  client-test:
+    container_name: client-test
+    build:
+      context: ./client
+    ports:
+      - "7167:7167"
+      - "5011:5011"
+      - "80:80"
+      - "443:443"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    volumes:
+      - ../ClientApp:/app
+    command: ["dotnet", "watch", "run"]
